@@ -14,7 +14,6 @@ fill the below details
   - Region
  
 <img width="852" height="827" alt="image" src="https://github.com/user-attachments/assets/10a76c4b-c474-4327-8549-abdd09f68cff" />
-
 - Advanced:
   in azure eco system we can connect with other resources using Manager Identities. in Managed Identity we have 2 options
   - System assigned :  life cycle of this manager identity stays with resources
