@@ -10,4 +10,12 @@ with Azure automation, you can:
 - Manage configuration, inventory, and updates for VM's
 - Integrate with logic apps, runbooks, and hybrid workers
 
-- 
+## use cases:
+
+- Auto shutdown VM's at night to save cost
+- Automatically start VM's before office hours
+- Schedule patching for windows/Linux VM's
+- Cleanup unused resources daily
+- Automate backup or snapshot creation
+- Connect to on-prem servers with Hybrid runbook worker
+-  
