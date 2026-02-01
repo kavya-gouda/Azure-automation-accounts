@@ -1,5 +1,3 @@
-# Azure-automation-accounts
-
 ## what is Azure automation accounts?
 Azure automation account is a cloud based  automation service that allows you to automate repitative tasks in your azure and on-prem environments. Think of it as your personal assistent that works 24/7
 
@@ -60,3 +58,38 @@ Azure automayion account have Managed identity to connect and work with other re
 
 ----
 # Create first Runbook
+1.  go to Automation Account and click on Create a runbook
+  <img width="1621" height="891" alt="image" src="https://github.com/user-attachments/assets/926c6855-89d2-489f-b208-aac212b051d6" />
+  <img width="863" height="912" alt="image" src="https://github.com/user-attachments/assets/4de61933-fc6b-4e35-8711-a71184407fa4" />
+
+2. fill the details and click on create
+     <img width="790" height="903" alt="image" src="https://github.com/user-attachments/assets/16b86986-4e13-414b-9273-75901a0f59a6" />
+3. Edit the Runbook in editor
+   <img width="1067" height="942" alt="image" src="https://github.com/user-attachments/assets/bc2cfc0d-ed65-407d-8d7b-d809295b21ae" />
+4.  Add below powershell command to check the version
+```
+# Ensure you do not inherit an AzContext in your Runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# Set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
+
+# Corrected line without the $ symbol
+Get-AzAutomationAccount -ResourceGroupName "automation-account" -Name "account-test-lab"
+```
+5. click save and go to test pane
+<img width="1880" height="888" alt="image" src="https://github.com/user-attachments/assets/6c77574d-a11b-42c4-82f1-a01d5d88e7c9" />
+Test doesn't count as jobs
+6.  if it all looks good, publish it
+<img width="1547" height="940" alt="image" src="https://github.com/user-attachments/assets/a2cf7e50-6aab-4622-a2e8-9b14713dacba" />
+
+7.  go to runbook click on start
+   <img width="1686" height="881" alt="image" src="https://github.com/user-attachments/assets/f8802c8a-bbb1-4169-a287-c0813b3aedda" />
+
+9.  Once the status is completed. you can check output/Errors/Warnings and many more
+    <img width="1903" height="946" alt="image" src="https://github.com/user-attachments/assets/4e1cac39-ced9-444f-ba28-c8617b0dae0a" />
+
+11.  
