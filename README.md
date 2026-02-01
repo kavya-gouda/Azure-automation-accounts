@@ -23,10 +23,15 @@ Shared Resources
 - Automate backup or snapshot creation
 - Connect to on-prem servers with Hybrid runbook worker
 
-other options
-
+## other options
 - Azure Functions : Event Driven serverless automation tool
 - Azure Logic apps : Graphical user interface to build workflows and process automation
+## Managed Identity
+# Managed Identity
+Azure automayion account have Managed identity to connect and work with other resources
 
-- 
+- System Assigned: Created with the Azure Automation account and bound to the lifecycle of the account
+  <img width="587" height="337" alt="image" src="https://github.com/user-attachments/assets/ceb15323-467d-44d3-a1d2-dc346703fb8d" />
+- User Assigned: Created independently of the Azure Automation account, use by multiple automation accounts or other Azure resources
+  <img width="577" height="351" alt="image" src="https://github.com/user-attachments/assets/4cd1ac56-cb2e-4f6f-b94e-5003f3ac5d6f" />
 - 
