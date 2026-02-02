@@ -43,7 +43,7 @@ Disable-AzContextAutoSave -Scope Process
 # Connect to Azure with system-assigned managed identity
 $AzureContext = (Connect-AzAccount -Identity).context
 # set and store context
-$vms = get-azvm| Where-Object {$_.Tags[LabGroup] -eq 'autostart'}
+$vms = get-azvm| Where-Object {$_.Tags['LabGroup'] -eq 'autostart'}
 Start shut down VM's
 foreach ($vm in vms) {
    $status = (get-azvm -Name $vm.Name - ResourceGroupName $vm.ResourceGroupName -status).statuses[1].code
