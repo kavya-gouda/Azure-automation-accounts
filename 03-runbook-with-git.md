@@ -54,7 +54,8 @@ foreach ($vm in vms) {
 }
 ```
    commit the change and push code to repo
+   
 7.  once pushed go to automation account, -> jobs -> here you can see the job which starts the sync, it may take few minutes
 8.  once synced go to Runbooks --> you will see runbooks, with New status. you can test it and publish
 
-9.  test the publish runbook enabled feature
+9.  test and publish runbook enabled feature
