@@ -36,22 +36,26 @@ To follow Along
 6. clone the selected repo
    create a file "startVMbyTag.ps1
 ```
-# labgroup autostart
-# log into the account
 # Ensures you do not inherit an AzContext in your runbook
 Disable-AzContextAutoSave -Scope Process
+
 # Connect to Azure with system-assigned managed identity
 $AzureContext = (Connect-AzAccount -Identity).context
-# set and store context
-$vms = get-azvm| Where-Object {$_.Tags['LabGroup'] -eq 'autostart'}
-Start shut down VM's
-foreach ($vm in vms) {
-   $status = (get-azvm -Name $vm.Name - ResourceGroupName $vm.ResourceGroupName -status).statuses[1].code
-   if ($status -ne 'PowerState/running') {
-      Write-Output "starting VM $vm.name"
-      start-azvm $vm.name -ResourceGroupName $vm.resourceGroupName -NoWait
-   }
+
+# Set and store context for VMs with specific tag
+$vms = Get-AzVM | Where-Object { $_.Tags['LabGroup'] -eq 'autostart' }
+
+# Loop through and start shut down VMs
+foreach ($vm in $vms) {
+    # Retrieve the power state status
+    $vmStatus = (Get-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Status).Statuses[1].Code
+    
+    if ($vmStatus -ne 'PowerState/running') {
+       Write-Output "Starting VM: $($vm.Name)"
+       Start-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -NoWait
+    }
 }
+
 ```
    commit the change and push code to repo
    
