@@ -9,7 +9,7 @@ To follow Along
 
 - Github account
 - Azure Automation account
-
+## instruction
 1. if you are using devops, make sure third party application by oauth is enabled
 <img width="1910" height="996" alt="image" src="https://github.com/user-attachments/assets/eb2007c1-4745-4eb4-a95b-4577995fc208" />
 
