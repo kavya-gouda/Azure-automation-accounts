@@ -8,3 +8,8 @@ we want to enable a solution for azure automation, that requires the workspace. 
 we can send job, automation event data diagnostic information to analytics, this doesn't require linked workspace
 log analytics workspace can only linked to one automation account and vice verse.
 
+both has to be in same region except for eastus and
+
+how to link?
+
+Go to automation account
